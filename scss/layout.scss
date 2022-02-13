@@ -1,0 +1,8 @@
+.logo {
+  background-color: $__color-white;
+  -webkit-mask-image: url("/media/logo-psyche.svg");
+  mask-image: url("/media/logo-psyche.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-repeat: no-repeat;
+}

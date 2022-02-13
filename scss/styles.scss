@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "Psyche";
+  font-weight: 300;
+  font-display: swap;
+  src: url(/media/icomoon.woff) format("woff");
+}
+
+// FONT STACK
+$__font-stack: "Raleway", sans-serif;
+$__font-size: 16px;
+
+// COLORS
+$__color-primary: hsl(176, 38%, calc(50% + var(--lightness)));
+$__color-secondary: hsl(0, 0%, calc(27% + var(--lightness)));
+$__color-white: hsl(0, 0%, calc(100% + var(--lightness)));
+$__color-black: hsl(0, 0%, calc(0% + var(--lightness)));
+
+// SIZES
+$__em-sizes: "0" 0em, "1" 0.125em, "2" 0.25em, "3" 0.5em, "4" 0.75em, "5" 1em,
+  "6" 1.5em, "7" 2em, "8" 3em, "9" 4em, "10" 5em;
+
+// FONT WEIGHTS
+@mixin __fontLight($__font-stack) {
+  font-family: $__font-stack;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin __fontItalicLight($__font-stack) {
+  font-family: $__font-stack;
+  font-style: italic;
+  font-weight: 300;
+}
+
+@mixin __fontRegular($__font-stack) {
+  font-family: $__font-stack;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin __fontItalicRegular($__font-stack) {
+  font-family: $__font-stack;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@mixin __fontBold($__font-stack) {
+  font-family: $__font-stack;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin __fontItalicBold($__font-stack) {
+  font-family: $__font-stack;
+  font-style: italic;
+  font-weight: 700;
+}
+
+:root {
+  --lightness: 0%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  appearance: none;
+  border: none;
+  color: $__color-secondary;
+  @include __fontRegular($__font-stack);
+  --lightness: 0%;
+}
+
+// :hover {
+//   --lightness: 10%;
+// }
+
+// LAYOUT
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.table {
+  display: table;
+}
+
+// LAYOUT FLEX
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.items-stretch {
+  align-items: stretch;
+}
+
+// SPACING
+@each $name, $size in $__em-sizes {
+  .p-#{$name} {
+    padding: $size;
+  }
+  .px-#{$name} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+  .pl-#{$name} {
+    padding-left: $size;
+  }
+  .pr-#{$name} {
+    padding-right: $size;
+  }
+  .py-#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+  .pt-#{$name} {
+    padding-top: $size;
+  }
+  .pb-#{$name} {
+    padding-bottom: $size;
+  }
+  .m-#{$name} {
+    margin: $size;
+  }
+  .mx-#{$name} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+  .ml-#{$name} {
+    margin-left: $size;
+  }
+  .mr-#{$name} {
+    margin-right: $size;
+  }
+  .my-#{$name} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+  .mt-#{$name} {
+    margin-top: $size;
+  }
+  .mb-#{$name} {
+    margin-bottom: $size;
+  }
+}
+
+// TYPOGRAPHY
+
+.list-none {
+  list-style-type: none;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+// BACKGROUNDS
+.bg_primary {
+  background-color: $__color-primary;
+}
+.bg_white {
+  background-color: $__color-white;
+}
+
+// HEIGHTS
+
+// LOGO
+.logo {
+  font-size: 2em;
+  color: $__color-white;
+  text-transform: uppercase;
+  @include __fontLight($__font-stack);
+  &:hover {
+    --lightness: -10%;
+  }
+}
+.logo:before {
+  content: "\e900";
+  font-family: Psyche;
+  font-size: 1em;
+  color: $__color-primary;
+  border-radius: 20em;
+  background-color: $__color-white;
+  margin-right: 0.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  aspect-ratio: 1/1;
+  &:hover {
+    --lightness: -50%;
+  }
+}
+.logo-as-bg-mask {
+  background-color: $__color-white;
+  mask-image: url("/media/logo-psyche.svg");
+  mask-repeat: no-repeat;
+  mask-size: 3em auto;
+  mask-position: 50% 50%;
+  width: 5em;
+  height: 5em;
+  :hover {
+    --lightness: -50%;
+  }
+}
